@@ -97,3 +97,120 @@
     }
 }
 
+/* === RESPONSYWNOŚĆ DLA TELEFONÓW === */
+@media (max-width: 768px) {
+    
+    /* Banner - scrollowalny, wyższy */
+    .banner {
+        height: 100vh;
+
+        overflow-y: auto;
+    }
+    
+    /* Slogan - wyśrodkowany jak na desktopie */
+    .slogan {
+        width: 90% !important;
+        height: auto !important;
+        font-size: 16px;
+        padding: 15px;
+        top: 30% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    .slogan h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .slogan h2 {
+        font-size: 20px;
+    }
+    
+    /* Przycisk - wyśrodkowany pod sloganem */
+    .magic-button {
+        padding: 18px 35px;
+        font-size: 16px;
+        top: 40% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    /* Obrazki - mniejsze, ale w tym samym chaotycznym układzie */
+    .banner > div:not(.slogan) {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    
+    .banner img {
+        border-radius: 12px;
+    }
+    
+    /* Pozycje obrazków - przeskalowane proporcjonalnie */
+.img_1 { top: 10%; left: 5%; z-index: 3; }
+.img_2 { top: 25%; left: 22%; z-index: 2; }
+.img_3 { top: 8%; left: 42%; z-index: 4; }
+.img_4 { top: 42%; left: 8%; z-index: 2; }
+.img_5 { top: 20%; left: 62%; z-index: 1; }
+.img_6 { top: 38%; left: 53%; z-index: 3; }
+.img_7 { top: 58%; left: 15%; z-index: 1; }
+.img_8 { top: 52%; left: 38%; z-index: 2; }
+.img_9 { top: 62%; left: 60%; z-index: 3; }
+    
+    /* Serduszka - trochę mniejsze */
+    .falling-heart {
+        max-width: 35px;
+    }
+}
+
+/* Dla bardzo małych telefonów */
+@media (max-width: 480px) {
+    
+    .slogan {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .slogan h1 {
+        font-size: 24px;
+    }
+    
+    .slogan h2 {
+        font-size: 18px;
+    }
+    
+    .magic-button {
+        padding: 15px 30px;
+        font-size: 14px;
+    }
+    
+    /* Jeszcze mniejsze obrazki */
+    .banner > div:not(.slogan) {
+        width: 110px !important;
+        height: 110px !important;
+    }
+}
+
+/* Orientacja pozioma */
+@media (max-width: 768px) and (orientation: landscape) {
+    
+    .banner {
+        min-height: 200vh;
+    }
+    
+    .slogan {
+        top: 15% !important;
+    }
+    
+    .slogan h1 {
+        font-size: 24px;
+    }
+    
+    .slogan h2 {
+        font-size: 18px;
+    }
+    
+    .magic-button {
+        top: 28% !important;
+    }
+}
