@@ -3,9 +3,16 @@ const button = document.querySelector('.magic-button');
 const images = document.querySelectorAll('.banner > div:not(.slogan)');
 
 // Ukryj wszystkie obrazki na starcie
-images.forEach(img => {
+images.forEach((img, index) => {
     img.style.opacity = '0';
-    img.style.transform = 'scale(0) rotate(0deg)';
+    
+    // Dla img_7 i img_8 (indeksy 6 i 7) ustaw rotate(90deg)
+    if (index === 6 || index === 7) {
+        img.style.transform = 'scale(0) rotate(90deg)';
+    } else {
+        img.style.transform = 'scale(0) rotate(0deg)';
+    }
+    
     img.style.transition = 'all 1s ease';
 });
 
@@ -39,7 +46,13 @@ button.addEventListener('click', () => {
     images.forEach((img, index) => {
         setTimeout(() => {
             img.style.opacity = '1';
-            img.style.transform = 'scale(1) rotate(0deg)';
+            
+            // Dla img_7 i img_8 zachowaj rotate(90deg)
+            if (index === 6 || index === 7) {
+                img.style.transform = 'scale(1) rotate(90deg)';
+            } else {
+                img.style.transform = 'scale(1) rotate(0deg)';
+            }
         }, index * 200); // każdy obrazek po 200ms
     });
     
