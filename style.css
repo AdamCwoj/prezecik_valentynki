@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* full height */
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFD1DC 30%, #FFB6C1 60%, #FFA3B5 100%);
+
+}
+
+/* wspólne style dla wszystkich obrazków */
+.banner > div {
+  position: absolute;
+  width: 300px;   /* większe niż poprzednio */
+  height: 300px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.banner img:hover {
+  transform: scale(1.05);
+  z-index: 20;
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+
+/* Rozsypanie po ekranie (w % dla Full HD) */
+.img_1 { top: 10%; left: 5%;   z-index: 1; }
+.img_2 { top: 15%; left: 25%;  z-index: 2; }
+.img_3 { top: 5%;  left: 45%;  z-index: 1; }
+.img_4 { top: 35%; left: 10%;  z-index: 2; }
+.img_5 { top: 15%; left: 70%;  z-index: 4; }
+.img_6 { top: 40%; left: 55%;  z-index: 2; }
+.img_7 { top: 65%; left: 20%;  z-index: 1; transform: rotate(90deg);}
+.img_8 { top: 55%; left: 40%;  z-index: 2;transform: rotate(90deg); }
+.img_9 { top: 60%; left: 68%;  z-index: 1; }
+
+.slogan{
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    width: 1000px !important;
+    height: 300px !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    text-shadow: 5px 5px 15px black;
+}
+
+.magic-button {
+    z-index: 999;
+  position: relative;
+  margin: 10px;
+  background-color: #ffd9e1; /* domyślne tło */
+  padding: 30px 60px;
+  cursor: pointer;
+  transition: background 0.3s ease; /* płynne przejście */
+  border-radius: 10px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.magic-button:hover {
+  background-image: url('images/heart-button.png');
+  background-size: cover; /* dopasowanie obrazka */
+  background-position: center; /* wyśrodkowanie */
+}
+
+/* Dodaj na końcu style.css */
+.falling-heart {
+    position: fixed;
+    top: -50px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        top: 110vh;
+        transform: translateY(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
