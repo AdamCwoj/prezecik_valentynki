@@ -43,6 +43,10 @@
 .img_7 { top: 65%; left: 20%;  z-index: 1; transform: rotate(90deg);}
 .img_8 { top: 55%; left: 40%;  z-index: 2;transform: rotate(90deg); }
 .img_9 { top: 60%; left: 68%;  z-index: 1; }
+.img_10 { top: 60%; left: 0%; z-index: 3; }
+.img_11 { top: 0%; right: 0%; z-index: 3; }
+.img_12{ top: 40%; left: 0%; z-index: 0; display: none; }
+.img_13 { top: 50%; right: 0%; z-index: 0; }
 
 .slogan{
     z-index: 999;
@@ -119,12 +123,12 @@
     }
     
     .slogan h1 {
-        font-size: 28px;
+        font-size: 50px;
         margin-bottom: 10px;
     }
     
     .slogan h2 {
-        font-size: 20px;
+        font-size: 30px;
     }
     
     /* Przycisk - wyśrodkowany pod sloganem */
@@ -156,6 +160,10 @@
 .img_7 { top: 58%; left: 15%; z-index: 1; }
 .img_8 { top: 52%; left: 38%; z-index: 2; }
 .img_9 { top: 62%; left: 60%; z-index: 3; }
+.img_10 { top: 70%; right: 0%; z-index: 3; }
+.img_11 { top: 80%; left: 50%; z-index: 3; }
+.img_12{ top: 50%; left: 70%; z-index: 0; display: block; }
+.img_13 { top: 78%; left: 20%; z-index: 3; }
     
     /* Serduszka - trochę mniejsze */
     .falling-heart {
