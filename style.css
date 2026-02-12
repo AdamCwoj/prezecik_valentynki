@@ -1,39 +1,57 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
 }
 
 .banner {
-  position: relative;
-  width: 100vw;
-  height: 100vh; /* full height */
-  overflow: hidden;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFD1DC 30%, #FFB6C1 60%, #FFA3B5 100%);
-
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFD1DC 25%, #FFB6C1 50%, #FFA3B5 75%, #FF8FA3 100%);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
 }
 
-/* wspólne style dla wszystkich obrazków */
-.banner > div {
-  position: absolute;
-  width: 300px;   /* większe niż poprzednio */
-  height: 300px;
+/* Animowane tło - delikatny ruch gradientu */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Wspólne style dla wszystkich obrazków - efekt polaroid */
+.banner > div:not(.slogan) {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 3px;
 }
 
 .banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 22px;
-  transition: transform .3s ease, box-shadow .3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: transform .4s ease, box-shadow .4s ease;
 }
 
-.banner img:hover {
-  transform: scale(1.05);
-  z-index: 20;
-  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+.banner > div:not(.slogan):hover {
+    transform: scale(1.08) rotate(2deg) !important;
+    z-index: 100 !important;
+    box-shadow: 0 25px 50px rgba(0,0,0,.3);
 }
 
-/* Rozsypanie po ekranie (w % dla Full HD) */
+/* Pozycje obrazków */
 .img_1 { top: 10%; left: 5%;   z-index: 1; }
 .img_2 { top: 15%; left: 25%;  z-index: 2; }
 .img_3 { top: 5%;  left: 45%;  z-index: 1; }
@@ -41,15 +59,19 @@
 .img_5 { top: 15%; left: 70%;  z-index: 4; }
 .img_6 { top: 40%; left: 55%;  z-index: 2; }
 .img_7 { top: 65%; left: 20%;  z-index: 1; transform: rotate(90deg);}
-.img_8 { top: 55%; left: 40%;  z-index: 2;transform: rotate(90deg); }
+.img_8 { top: 55%; left: 40%;  z-index: 2; transform: rotate(90deg); }
 .img_9 { top: 60%; left: 68%;  z-index: 1; }
 .img_10 { top: 60%; left: 0%; z-index: 3; }
 .img_11 { top: 0%; right: 0%; z-index: 3; }
 .img_12{ top: 40%; left: 0%; z-index: 0; display: none; }
 .img_13 { top: 50%; right: 0%; z-index: 0; }
 
+/* Slogan - pulsujący i świecący */
 .slogan{
-    z-index: 999;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -60,37 +82,101 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: #FFFFFF;
-    text-shadow: 5px 5px 15px black;
+    text-shadow: 3px 3px 20px rgba(255, 105, 180, 0.8),
+                 0 0 30px rgba(255, 182, 193, 0.6),
+                 0 0 50px rgba(255, 105, 180, 0.4);
+    animation: gentleGlow 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
-.magic-button {
-    z-index: 999;
-  position: relative;
-  margin: 10px;
-  background-color: #ffd9e1; /* domyślne tło */
-  padding: 30px 60px;
-  cursor: pointer;
-  transition: background 0.3s ease; /* płynne przejście */
-  border-radius: 10px;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.slogan h1 {
+    font-family: 'Georgia', serif;
+    font-size: 60px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
 
+.slogan h2 {
+    font-family: 'Georgia', serif;
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Delikatne pulsowanie napisu */
+@keyframes gentleGlow {
+    0%, 100% { 
+        text-shadow: 3px 3px 20px rgba(255, 105, 180, 0.8),
+                     0 0 30px rgba(255, 182, 193, 0.6),
+                     0 0 50px rgba(255, 105, 180, 0.4);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% { 
+        text-shadow: 3px 3px 25px rgba(255, 105, 180, 1),
+                     0 0 40px rgba(255, 182, 193, 0.8),
+                     0 0 60px rgba(255, 105, 180, 0.6);
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+}
+
+/* Przycisk */
+.magic-button {
+    z-index: 1000;
+    position: absolute;
+    background-color: #ffd9e1;
+    padding: 30px 60px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    font-family: 'Georgia', serif;
+    color: #d63384;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3),
+                0 0 20px rgba(255, 182, 193, 0.4);
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3),
+                    0 0 20px rgba(255, 182, 193, 0.4);
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5),
+                    0 0 30px rgba(255, 182, 193, 0.6);
+    }
 }
 
 .magic-button:hover {
-  background-image: url('images/heart-button.png');
-  background-size: cover; /* dopasowanie obrazka */
-  background-position: center; /* wyśrodkowanie */
+    background-image: url('images/heart-button.png');
+    background-size: cover;
+    background-position: center;
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.6),
+                0 0 40px rgba(255, 182, 193, 0.8);
 }
 
-/* Dodaj na końcu style.css */
+.magic-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Spadające serduszka */
 .falling-heart {
     position: fixed;
     top: -50px;
     pointer-events: none;
     z-index: 9999;
     animation: fall linear forwards;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.5));
 }
 
 @keyframes fall {
@@ -101,73 +187,99 @@
     }
 }
 
+/* Spadające konfetti */
+.falling-confetti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 9998;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        top: 110vh;
+        transform: translateY(0) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.img_7:hover {
+    transform: scale(1.08) rotate(92deg) !important;
+}
+
+.img_8:hover {
+    transform: scale(1.08) rotate(92deg) !important;
+}
+
 /* === RESPONSYWNOŚĆ DLA TELEFONÓW === */
 @media (max-width: 768px) {
     
-    /* Banner - scrollowalny, wyższy */
-    .banner {
-        height: 100vh;
-
+    body {
         overflow-y: auto;
     }
     
-    /* Slogan - wyśrodkowany jak na desktopie */
+    .banner {
+        min-height: 100vh;
+        overflow-y: visible;
+    }
+    
     .slogan {
         width: 90% !important;
         height: auto !important;
         font-size: 16px;
-        padding: 15px;
-        top: 30% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
+        padding: 20px;
+        top: 25% !important;
     }
     
     .slogan h1 {
-        font-size: 50px;
+        font-size: 42px;
         margin-bottom: 10px;
     }
     
     .slogan h2 {
-        font-size: 30px;
+        font-size: 26px;
     }
     
-    /* Przycisk - wyśrodkowany pod sloganem */
     .magic-button {
-        padding: 18px 35px;
-        font-size: 16px;
+        padding: 20px 40px;
+        font-size: 18px;
         top: 40% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
     }
     
-    /* Obrazki - mniejsze, ale w tym samym chaotycznym układzie */
     .banner > div:not(.slogan) {
-        width: 130px !important;
-        height: 130px !important;
+        width: 140px !important;
+        height: 140px !important;
+        padding: 10px;
     }
     
     .banner img {
-        border-radius: 12px;
+        border-radius: 2px;
     }
     
-    /* Pozycje obrazków - przeskalowane proporcjonalnie */
-.img_1 { top: 10%; left: 5%; z-index: 3; }
-.img_2 { top: 25%; left: 22%; z-index: 2; }
-.img_3 { top: 8%; left: 42%; z-index: 4; }
-.img_4 { top: 42%; left: 8%; z-index: 2; }
-.img_5 { top: 20%; left: 62%; z-index: 1; }
-.img_6 { top: 38%; left: 53%; z-index: 3; }
-.img_7 { top: 58%; left: 15%; z-index: 1; }
-.img_8 { top: 52%; left: 38%; z-index: 2; }
-.img_9 { top: 62%; left: 60%; z-index: 3; }
-.img_10 { top: 70%; right: 0%; z-index: 3; }
-.img_11 { top: 80%; left: 50%; z-index: 3; }
-.img_12{ top: 50%; left: 70%; z-index: 0; display: block; }
-.img_13 { top: 78%; left: 20%; z-index: 3; }
+    /* Pozycje obrazków - mobile */
+    .img_1 { top: 10%; left: 5%; z-index: 3; }
+    .img_2 { top: 25%; left: 22%; z-index: 2; }
+    .img_3 { top: 8%; left: 42%; z-index: 4; }
+    .img_4 { top: 48%; left: 8%; z-index: 2; }
+    .img_5 { top: 20%; left: 62%; z-index: 1; }
+    .img_6 { top: 45%; left: 53%; z-index: 3; }
+    .img_7 { top: 65%; left: 15%; z-index: 1; }
+    .img_8 { top: 58%; left: 38%; z-index: 2; }
+    .img_9 { top: 70%; left: 60%; z-index: 3; }
+    .img_10 { top: 80%; left: 5%; z-index: 3; }
+    .img_11 { top: 85%; left: 50%; z-index: 3; }
+    .img_12{ top: 52%; left: 70%; z-index: 0; display: block; }
+    .img_13 { top: 90%; left: 20%; z-index: 3; }
     
-    /* Serduszka - trochę mniejsze */
     .falling-heart {
-        max-width: 35px;
+        max-width: 40px;
     }
 }
 
@@ -176,26 +288,27 @@
     
     .slogan {
         font-size: 14px;
-        padding: 10px;
+        padding: 15px;
+        top: 22% !important;
     }
     
     .slogan h1 {
-        font-size: 24px;
+        font-size: 32px;
     }
     
     .slogan h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .magic-button {
-        padding: 15px 30px;
-        font-size: 14px;
+        padding: 18px 35px;
+        font-size: 16px;
     }
     
-    /* Jeszcze mniejsze obrazki */
     .banner > div:not(.slogan) {
-        width: 110px !important;
-        height: 110px !important;
+        width: 120px !important;
+        height: 120px !important;
+        padding: 8px;
     }
 }
 
@@ -207,18 +320,20 @@
     }
     
     .slogan {
-        top: 15% !important;
+        top: 18% !important;
     }
     
     .slogan h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .slogan h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .magic-button {
-        top: 28% !important;
+        top: 32% !important;
+        padding: 15px 30px;
+        font-size: 16px;
     }
 }
