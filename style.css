@@ -45,10 +45,25 @@ body {
     transition: transform .4s ease, box-shadow .4s ease;
 }
 
+/* Hover - wspólne efekty dla wszystkich */
 .banner > div:not(.slogan):hover {
-    transform: scale(1.08) rotate(2deg) !important;
     z-index: 100 !important;
     box-shadow: 0 25px 50px rgba(0,0,0,.3);
+}
+
+/* Normalne obrazki - powiększenie + lekka rotacja */
+.img_1:hover, .img_2:hover, .img_3:hover, .img_4:hover, .img_5:hover, 
+.img_6:hover, .img_9:hover, .img_10:hover, .img_11:hover, .img_12:hover, .img_13:hover {
+    transform: scale(1.08) rotate(2deg) !important;
+}
+
+/* Obrazki 7 i 8 - tylko powiększenie, zachowaj 90deg */
+.img_7:hover {
+    transform: scale(1.08) rotate(90deg) !important;
+}
+
+.img_8:hover {
+    transform: scale(1.08) rotate(90deg) !important;
 }
 
 /* Pozycje obrazków */
@@ -58,8 +73,8 @@ body {
 .img_4 { top: 35%; left: 10%;  z-index: 2; }
 .img_5 { top: 15%; left: 70%;  z-index: 4; }
 .img_6 { top: 40%; left: 55%;  z-index: 2; }
-.img_7 { top: 65%; left: 20%;  z-index: 1; transform: rotate(90deg);}
-.img_8 { top: 55%; left: 40%;  z-index: 2; transform: rotate(90deg); }
+.img_7 { top: 65%; left: 20%;  z-index: 1; transform: rotate(90deg) !important;}
+.img_8 { top: 55%; left: 40%;  z-index: 2; transform: rotate(90deg) !important; }
 .img_9 { top: 60%; left: 68%;  z-index: 1; }
 .img_10 { top: 60%; left: 0%; z-index: 3; }
 .img_11 { top: 0%; right: 0%; z-index: 3; }
@@ -262,13 +277,13 @@ body {
     .img_4 { top: 38%; left: 8%; z-index: 2; }
     .img_5 { top: 20%; left: 62%; z-index: 1; }
     .img_6 { top: 35%; left: 53%; z-index: 3; }
-    .img_7 { top: 55%; left: 15%; z-index: 1; }
-    .img_8 { top: 48%; left: 38%; z-index: 2; }
+    .img_7 { top: 55%; left: 15%; z-index: 1;transform: rotate(90deg); }
+    .img_8 { top: 48%; left: 38%; z-index: 2;transform: rotate(90deg) }
     .img_9 { top: 60%; left: 60%; z-index: 3; }
-    .img_10 { top: 70%; left: 5%; z-index: 3; }
-    .img_11 { top: 75%; left: 50%; z-index: 3; }
+    .img_10 { top: 68%; left: 5%; z-index: 3; }
+    .img_11 { top: 70%; left: 50%; z-index: 3; }
     .img_12{ top: 43%; left: 70%; z-index: 0; display: block; }
-    .img_13 { top: 80%; left: 20%; z-index: 3; }
+    .img_13 { top: 78%; left: 20%; z-index: 3; }
     
     .falling-heart {
         max-width: 40px;

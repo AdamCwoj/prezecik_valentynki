@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Dla img_7 i img_8 zachowaj rotate(90deg)
                 if (index === 6 || index === 7) {
-                    img.style.transform = 'scale(1) rotate(90deg)';
+                    img.style.transform = 'scale(1) rotate(0deg)';
                 } else {
                     // Dodaj lekką rotację dla większej dynamiki
                     const randomRotation = (Math.random() - 0.5) * 4; // -2 do 2 stopni
