@@ -210,14 +210,6 @@ body {
     }
 }
 
-.img_7:hover {
-    transform: scale(1.08) rotate(92deg) !important;
-}
-
-.img_8:hover {
-    transform: scale(1.08) rotate(92deg) !important;
-}
-
 /* === RESPONSYWNOŚĆ DLA TELEFONÓW === */
 @media (max-width: 768px) {
     
@@ -267,16 +259,16 @@ body {
     .img_1 { top: 10%; left: 5%; z-index: 3; }
     .img_2 { top: 25%; left: 22%; z-index: 2; }
     .img_3 { top: 8%; left: 42%; z-index: 4; }
-    .img_4 { top: 48%; left: 8%; z-index: 2; }
+    .img_4 { top: 38%; left: 8%; z-index: 2; }
     .img_5 { top: 20%; left: 62%; z-index: 1; }
-    .img_6 { top: 45%; left: 53%; z-index: 3; }
-    .img_7 { top: 65%; left: 15%; z-index: 1; }
-    .img_8 { top: 58%; left: 38%; z-index: 2; }
-    .img_9 { top: 70%; left: 60%; z-index: 3; }
-    .img_10 { top: 80%; left: 5%; z-index: 3; }
-    .img_11 { top: 85%; left: 50%; z-index: 3; }
-    .img_12{ top: 52%; left: 70%; z-index: 0; display: block; }
-    .img_13 { top: 90%; left: 20%; z-index: 3; }
+    .img_6 { top: 35%; left: 53%; z-index: 3; }
+    .img_7 { top: 55%; left: 15%; z-index: 1; }
+    .img_8 { top: 48%; left: 38%; z-index: 2; }
+    .img_9 { top: 60%; left: 60%; z-index: 3; }
+    .img_10 { top: 70%; left: 5%; z-index: 3; }
+    .img_11 { top: 75%; left: 50%; z-index: 3; }
+    .img_12{ top: 43%; left: 70%; z-index: 0; display: block; }
+    .img_13 { top: 80%; left: 20%; z-index: 3; }
     
     .falling-heart {
         max-width: 40px;
